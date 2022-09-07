@@ -4,7 +4,7 @@ import {Screen, TextPrimary} from '../components';
 import {TNativeStackScreenProps} from '../navigation/types';
 
 const DetailsScreen = () => {
-  const route = useRoute<TNativeStackScreenProps<'details'>['route']>();
+  const route = useRoute<TNativeStackScreenProps<'listing_details'>['route']>();
 
   return (
     <Screen>

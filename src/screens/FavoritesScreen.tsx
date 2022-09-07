@@ -10,7 +10,7 @@ const FavoritesScreen = () => {
     <Screen>
       <TextPrimary>Favorites</TextPrimary>
       <TouchableOpacity
-        onPress={() => navigation.navigate('details', {id: '2'})}>
+        onPress={() => navigation.navigate('favorites_details', {id: '2'})}>
         <TextSecondary>Details 2</TextSecondary>
       </TouchableOpacity>
     </Screen>

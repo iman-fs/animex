@@ -11,7 +11,7 @@ const ListingScreen = () => {
     <Screen>
       <TextPrimary>Listing: {route?.name}</TextPrimary>
       <TouchableOpacity
-        onPress={() => navigation.navigate('details', {id: '1'})}>
+        onPress={() => navigation.navigate('listing_details', {id: '1'})}>
         <TextSecondary>Details 1</TextSecondary>
       </TouchableOpacity>
     </Screen>

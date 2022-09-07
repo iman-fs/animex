@@ -1,34 +1,26 @@
 import type {BottomTabScreenProps} from '@react-navigation/bottom-tabs';
-import type {
-  CompositeScreenProps,
-  NavigatorScreenParams,
-} from '@react-navigation/native';
+import type {CompositeScreenProps} from '@react-navigation/native';
 import type {NativeStackScreenProps} from '@react-navigation/native-stack';
+import {TDrawerNavigatorParams} from './DrawerNavigator';
+import {TFavoritesStackNavigatorParams} from './FavoritesStackNavigator';
+import {TListingStackNavigatorParams} from './ListingStackNavigator';
+import {TTabNavigatorParams} from './TabNavigator';
 
-export type TTabNavigatorParams = {
-  airing: undefined;
-  complete: undefined;
-  upcoming: undefined;
-};
+export type TRootNavigatorParams = TDrawerNavigatorParams &
+  TListingStackNavigatorParams &
+  TFavoritesStackNavigatorParams;
 
-export type TNativeStackNavigatorParams = {
-  listing: NavigatorScreenParams<TTabNavigatorParams>;
-  favorites: undefined;
-  details: {id: string};
-};
-
-export type TNativeStackScreenProps<
-  T extends keyof TNativeStackNavigatorParams,
-> = NativeStackScreenProps<TNativeStackNavigatorParams, T>;
+export type TNativeStackScreenProps<T extends keyof TRootNavigatorParams> =
+  NativeStackScreenProps<TRootNavigatorParams, T>;
 
 export type TTabScreenProps<T extends keyof TTabNavigatorParams> =
   CompositeScreenProps<
     BottomTabScreenProps<TTabNavigatorParams, T>,
-    TNativeStackScreenProps<keyof TNativeStackNavigatorParams>
+    TNativeStackScreenProps<keyof TRootNavigatorParams>
   >;
 
 declare global {
   namespace ReactNavigation {
-    interface RootParamList extends TNativeStackNavigatorParams {}
+    interface RootParamList extends TRootNavigatorParams {}
   }
 }
