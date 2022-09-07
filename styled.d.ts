@@ -1,9 +1,7 @@
 import 'styled-components';
 
-declare module 'styled-components' {
+declare module 'styled-components/native' {
   export interface DefaultTheme {
-    borderRadius: string;
-
     colors: {
       primary: string;
       secondary: string;
