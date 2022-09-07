@@ -1,7 +1,7 @@
 import React from 'react';
 import {StatusBar, useColorScheme} from 'react-native';
 import {ThemeProvider} from 'styled-components/native';
-import {Screen, TextPrimary, TextSecondary} from './components';
+import Navigation from './navigation';
 import {darkTheme, lightTheme} from './themes';
 
 const App = () => {
@@ -10,10 +10,7 @@ const App = () => {
   return (
     <ThemeProvider theme={isDarkMode ? darkTheme : lightTheme}>
       <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
-      <Screen>
-        <TextPrimary>Primary</TextPrimary>
-        <TextSecondary>Secondary</TextSecondary>
-      </Screen>
+      <Navigation />
     </ThemeProvider>
   );
 };
