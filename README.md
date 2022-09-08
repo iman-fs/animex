@@ -1,6 +1,6 @@
 # AnimeX
 
-![demo](./demo.gif)
+![demo](./demo.mov)
 
 A cross-platform anime catalog application that allows users to browse and search anime and mark them as favorite.
 
