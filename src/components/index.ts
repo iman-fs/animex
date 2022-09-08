@@ -1,5 +1,6 @@
 export {default as AnimeCard} from './AnimeCard';
 export {default as AnimeDetails} from './AnimeDetails';
+export {default as AnimeList} from './AnimeList';
 export {default as Center} from './Center';
 export {default as CoverImage} from './CoverImage';
 export {default as Divider} from './Divider';
