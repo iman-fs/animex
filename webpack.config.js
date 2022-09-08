@@ -38,6 +38,12 @@ const imageLoaderConfiguration = {
   },
 };
 
+const fontLoaderConfiguration = {
+  test: /\.ttf$/,
+  loader: 'url-loader',
+  include: path.resolve(__dirname, 'node_modules/react-native-vector-icons'),
+};
+
 module.exports = {
   entry: {
     app: path.join(__dirname, 'index.js'),
@@ -54,7 +60,11 @@ module.exports = {
     },
   },
   module: {
-    rules: [babelLoaderConfiguration, imageLoaderConfiguration],
+    rules: [
+      babelLoaderConfiguration,
+      imageLoaderConfiguration,
+      fontLoaderConfiguration,
+    ],
   },
   plugins: [
     new HtmlWebpackPlugin({

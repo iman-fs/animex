@@ -46,7 +46,7 @@ const DetailsScreen: React.FC = () => {
   }
 
   return (
-    <Screen>
+    <Screen primary>
       <ScrollView>{data?.data && <AnimeDetails data={data.data} />}</ScrollView>
     </Screen>
   );

@@ -1,12 +1,12 @@
 import styled from 'styled-components/native';
 
 type TProps = {
-  secondary?: boolean;
+  primary?: boolean;
 };
 
 const Screen = styled.View<TProps>`
-  background-color: ${({theme, secondary}) =>
-    secondary ? theme.colors.secondary : theme.colors.primary};
+  background-color: ${({theme, primary}) =>
+    primary ? theme.colors.primary : theme.colors.secondary};
   flex: 1;
 `;
 

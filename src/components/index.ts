@@ -9,6 +9,7 @@ export {default as FaveIconButton} from './FaveIconButton';
 export {default as IconButton} from './IconButton';
 export {default as LoadingIndicator} from './LoadingIndicator';
 export {default as Screen} from './Screen';
+export {default as SearchBar} from './SearchBar';
 export {default as Spacer} from './Spacer';
 export {default as TextPrimary} from './TextPrimary';
 export {default as TextSecondary} from './TextSecondary';
