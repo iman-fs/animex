@@ -8,6 +8,7 @@ declare module 'styled-components/native' {
       border: string;
       textPrimary: string;
       textSecondary: string;
+      accent: string;
     };
   }
 }

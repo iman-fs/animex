@@ -25,6 +25,50 @@ declare global {
   }
 }
 
+export interface TResponse<T> {
+  pagination: TPagination;
+  data: T[];
+  links: TLinks;
+  meta: TMeta;
+}
+
+export interface TPagination {
+  last_visible_page: number;
+  has_next_page: boolean;
+  current_page: number;
+  items: TItems;
+}
+
+export interface TItems {
+  count: number;
+  total: number;
+  per_page: number;
+}
+
+export interface TLinks {
+  first: string | null;
+  last: string | null;
+  prev: string | null | null;
+  next: string | null;
+}
+
+export interface TMeta {
+  current_page: number;
+  from: number;
+  last_page: number;
+  links: TPaginationLink[];
+  path: string;
+  per_page: number;
+  to: number;
+  total: number;
+}
+
+export interface TPaginationLink {
+  url: null | string;
+  label: string;
+  active: boolean;
+}
+
 export interface TAnime {
   mal_id: number;
   url: string;
