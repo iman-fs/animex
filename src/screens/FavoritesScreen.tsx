@@ -1,18 +1,20 @@
 import {useNavigation} from '@react-navigation/native';
 import React from 'react';
-import {TouchableOpacity} from 'react-native';
-import {Screen, TextPrimary, TextSecondary} from '../components';
+import {AnimeList, Screen} from '../components';
+import {useStore} from '../hooks';
 
 const FavoritesScreen = () => {
+  const store = useStore();
   const navigation = useNavigation();
 
   return (
     <Screen>
-      <TextPrimary>Favorites</TextPrimary>
-      <TouchableOpacity
-        onPress={() => navigation.navigate('favorites_details', {id: '2'})}>
-        <TextSecondary>Details 2</TextSecondary>
-      </TouchableOpacity>
+      <AnimeList
+        data={store.favorites}
+        onPress={anime =>
+          navigation.navigate('favorites_details', {id: anime.mal_id})
+        }
+      />
     </Screen>
   );
 };
