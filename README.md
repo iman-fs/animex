@@ -1,8 +1,6 @@
-# animex
+# AnimeX
 
-<video width="296" height="640" controls>
-  <source src="demo.mov" type="video/mp4">
-</video>
+![demo](./demo.gif)
 
 A cross-platform anime catalog application that allows users to browse and search anime and mark them as favorite.
 
@@ -21,5 +19,5 @@ yarn
 ```sh
 yarn android
 yarn ios
-yarn web # Not working yet
+yarn web # not working yet
 ```
