@@ -1,19 +1,56 @@
 import {useNavigation, useRoute} from '@react-navigation/native';
-import React from 'react';
-import {TouchableOpacity} from 'react-native';
-import {Screen, TextPrimary, TextSecondary} from '../components';
+import React, {useEffect, useState} from 'react';
+import {AnimeList, EmptyState, LoadingIndicator, Screen} from '../components';
+import {useFetchAnimeList} from '../hooks';
+import {TAnime} from '../types';
 
 const ListingScreen = () => {
-  const navigation = useNavigation();
   const route = useRoute();
+  const navigation = useNavigation();
+  const [page, setPage] = useState(1);
+  const [list, setList] = useState<TAnime[]>();
+  const {isLoading, error, data, request} = useFetchAnimeList(route.name, page);
+
+  useEffect(() => {
+    request();
+  }, [request]);
+
+  useEffect(() => {
+    if (data?.data) {
+      setList(old => (old ? [...old, ...data.data] : data.data));
+    }
+  }, [data]);
+
+  if (isLoading && !data) {
+    return <LoadingIndicator />;
+  }
+
+  if (error && !data) {
+    return (
+      <Screen>
+        <EmptyState
+          title={'whoopsie!'}
+          message={'Something went wrong, Please try again.'}
+          onRetry={request}
+        />
+      </Screen>
+    );
+  }
 
   return (
     <Screen>
-      <TextPrimary>Listing: {route?.name}</TextPrimary>
-      <TouchableOpacity
-        onPress={() => navigation.navigate('listing_details', {id: '1'})}>
-        <TextSecondary>Details 1</TextSecondary>
-      </TouchableOpacity>
+      <AnimeList
+        data={list}
+        onPress={anime =>
+          navigation.navigate('listing_details', {id: anime.mal_id})
+        }
+        isLoading={isLoading}
+        onLoadMore={() => {
+          if (!isLoading) {
+            setPage(old => old + 1);
+          }
+        }}
+      />
     </Screen>
   );
 };

@@ -13,7 +13,7 @@ const IconButton: React.FC<TProps> = ({name, color, onPress}) => {
   const {colors} = useTheme();
 
   return (
-    <TouchableOpacity onPress={onPress}>
+    <TouchableOpacity onPress={onPress} disabled={onPress === undefined}>
       <Icon name={name} size={26} color={color || colors.accent} />
     </TouchableOpacity>
   );
