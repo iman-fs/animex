@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from 'styled-components/native';
+import styled, {useTheme} from 'styled-components/native';
 import {TAnime} from '../types';
 import TextPrimary from './TextPrimary';
 import TextSecondary from './TextSecondary';
@@ -24,16 +24,23 @@ type TProps = {
   onPress: () => void;
 };
 
-const AnimeCard: React.FC<TProps> = ({data, onPress}) => (
-  <Container onPress={onPress}>
-    <Cover source={{uri: data.images.jpg.image_url}} />
-    <DetailsContainer>
-      <TextPrimary>{data.title}</TextPrimary>
-      {data.rating && <TextSecondary>{data.rating}</TextSecondary>}
-      {data.score && <TextSecondary>Score: {data.score}</TextSecondary>}
-      {data.year && <TextSecondary>Year: {data.year}</TextSecondary>}
-    </DetailsContainer>
-  </Container>
-);
+const AnimeCard: React.FC<TProps> = ({data, onPress}) => {
+  const {colors} = useTheme();
+
+  return (
+    <Container onPress={onPress}>
+      <Cover
+        source={{uri: data.images.jpg.image_url}}
+        style={{backgroundColor: colors.secondary}}
+      />
+      <DetailsContainer>
+        <TextPrimary>{data.title}</TextPrimary>
+        {data.rating && <TextSecondary>{data.rating}</TextSecondary>}
+        {data.score && <TextSecondary>Score: {data.score}</TextSecondary>}
+        {data.year && <TextSecondary>Year: {data.year}</TextSecondary>}
+      </DetailsContainer>
+    </Container>
+  );
+};
 
 export default AnimeCard;
