@@ -1,7 +1,10 @@
 export {default as AnimeCard} from './AnimeCard';
+export {default as AnimeDetails} from './AnimeDetails';
 export {default as Center} from './Center';
+export {default as CoverImage} from './CoverImage';
 export {default as Divider} from './Divider';
 export {default as EmptyState} from './EmptyState';
+export {default as FaveIconButton} from './FaveIconButton';
 export {default as IconButton} from './IconButton';
 export {default as LoadingIndicator} from './LoadingIndicator';
 export {default as Screen} from './Screen';
