@@ -1,15 +1,13 @@
 import styled from 'styled-components/native';
 
-interface Props {
+type TProps = {
   secondary?: boolean;
-}
+};
 
-const Screen = styled.View<Props>`
+const Screen = styled.View<TProps>`
   background-color: ${({theme, secondary}) =>
     secondary ? theme.colors.secondary : theme.colors.primary};
   flex: 1;
-  justify-content: center;
-  align-items: center;
 `;
 
 export default Screen;
