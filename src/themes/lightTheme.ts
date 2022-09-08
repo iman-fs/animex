@@ -7,6 +7,7 @@ const lightTheme: DefaultTheme = {
     border: '#e8ebec',
     textPrimary: '#000000',
     textSecondary: '#9d9d9d',
+    accent: '#007bff',
   },
 };
 

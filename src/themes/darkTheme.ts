@@ -7,6 +7,7 @@ const darkTheme: DefaultTheme = {
     border: '#191919',
     textPrimary: '#ffffff',
     textSecondary: '#9d9d9d',
+    accent: '#007bff',
   },
 };
 
